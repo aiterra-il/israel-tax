@@ -1,0 +1,41 @@
+import { type ParsedNumber } from './vat-calculator.js';
+export type BuyerKind = 'single' | 'additional' | 'oleh';
+export type Bracket = {
+    upTo: number | null;
+    rateBasisPoints: number;
+};
+export type BracketRow = {
+    from: number;
+    to: number | null;
+    rateBasisPoints: number;
+    amount: number;
+    tax: number;
+};
+export type PurchaseTaxResult = {
+    kind: BuyerKind;
+    value: number;
+    rows: BracketRow[];
+    tax: number;
+    effectiveRate: number;
+    olehBenefitDenied: boolean;
+    savingVersusSingle: number;
+};
+export declare const BRACKETS_VALID_FROM = "16.1.2024";
+export declare const BRACKETS_VALID_UNTIL = "15.1.2028";
+export declare const REVIEWED_DATE = "2026-10-24";
+export declare const REVIEWED_LABEL = "24.10.2026";
+export declare const MAX_VALUE_SHEKELS = 1000000000;
+export declare const SINGLE_BRACKETS: Bracket[];
+export declare const ADDITIONAL_BRACKETS: Bracket[];
+export declare const OLEH_BRACKETS: Bracket[];
+export declare const OLEH_VALUE_CEILING = 20183565;
+export declare function bracketsFor(kind: BuyerKind): Bracket[];
+export declare function calculatePurchaseTax(valueAgorot: number, kind: BuyerKind): PurchaseTaxResult;
+export declare function parseValue(input: string): ParsedNumber;
+export declare const formatShekels: (amount: number) => string;
+export declare const formatNumber: (amount: number) => string;
+export declare const formatBasisPoints: (basisPoints: number) => string;
+export declare const formatRatio: (ratio: number) => string;
+export declare function bracketLabel(row: BracketRow): string;
+export declare const KIND_LABELS: Record<BuyerKind, string>;
+export declare function resultToText(result: PurchaseTaxResult): string;
