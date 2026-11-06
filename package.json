@@ -1,0 +1,24 @@
+{
+  "name": "israel-tax",
+  "version": "1.0.0",
+  "description": "Israeli tax and payroll calculators for 2026: net salary (מס הכנסה, ביטוח לאומי, מס בריאות, פנסיה), gross from net, VAT 18%, purchase tax (מס רכישה), self-employed tax, severance pay, credit points, recuperation pay and minimum wage",
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    }
+  },
+  "files": ["*.js", "*.d.ts", "!test.js"],
+  "sideEffects": false,
+  "engines": { "node": ">=18" },
+  "scripts": { "test": "node --test test.js" },
+  "keywords": ["israel", "tax", "payroll", "net-salary", "vat", "מע\"מ", "מס הכנסה", "ביטוח לאומי", "שכר נטו", "מס רכישה", "פיצויים", "נקודות זיכוי", "hebrew"],
+  "author": "Aiterra <info@aiterra.co.il> (https://www.aiterra.co.il)",
+  "license": "MIT",
+  "homepage": "https://www.aiterra.co.il/tools/net-salary-calculator",
+  "repository": { "type": "git", "url": "git+https://github.com/aiterra-il/israel-tax.git" },
+  "bugs": { "url": "https://github.com/aiterra-il/israel-tax/issues" }
+}
